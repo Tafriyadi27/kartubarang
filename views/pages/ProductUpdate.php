@@ -23,8 +23,8 @@ if (!isset($_SESSION["id"]))
             // Bersihkan data
             $no = $db->escape_string($_POST["no"]);
             $tanggal  = $db->escape_string($_POST["tanggal"]);
-            $masuk       = $db->escape_string($_POST["masuk"]);
-            $keluar        = $db->escape_string($_POST["keluar"]);
+            $masuk       = str_replace(",", "", explode(".", $db->escape_string($_POST["masuk"]))[0]);
+            $keluar       = str_replace(",", "", explode(".", $db->escape_string($_POST["keluar"]))[0]);
             $keterangan = $db->escape_string($_POST["keterangan"]);
             $masuktoint = (int)$masuk;
             $keluartoint = (int)$keluar;

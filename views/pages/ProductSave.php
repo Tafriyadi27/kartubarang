@@ -22,8 +22,8 @@ if (!isset($_SESSION["id"]))
         if ($db->connect_errno == 0) {
             // Bersihkan data
             $tanggal  = $db->escape_string($_POST["tanggal"]);
-            $masuk       = $db->escape_string($_POST["masuk"]);
-            $keluar        = $db->escape_string($_POST["keluar"]);
+            $masuk       = str_replace(",", "", explode(".", $db->escape_string($_POST["masuk"]))[0]);
+            $keluar       = str_replace(",", "", explode(".", $db->escape_string($_POST["keluar"]))[0]);
             $keterangan = $db->escape_string($_POST["keterangan"]);
             $masuktoint = (int)$masuk;
             $keluartoint = (int)$keluar;
@@ -35,35 +35,37 @@ if (!isset($_SESSION["id"]))
             $res = $db->query($sql);
             if ($res) {
                 if ($db->affected_rows > 0) { // jika ada penambahan data
+                    header("Location: ../../ProductData.php");
     ?>
-    <br>
-                <br>
-                <br>
-                <br>
-                <center>
-                    <div class="page-content page-container" id="page-content">
-                        <div class="padding">
-                            <div class="row container d-flex justify-content-center">
-                                <div class="col-xl-6 col-md-12">
-                                    <div class="card user-card-full">
-                                                <div class="card-block">
-                                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Data berhasil di simpan</h6>
-                                  
-                                                    <br>
-                                                  
-                                                    <a class="btn btn-primary" href="ProductData.php" role="button">Kembali Ke Menu Awal</a>
-                                                </div>
+                    <!-- <br>
+                    <br>
+                    <br>
+                    <br>
+                    <center>
+                        <div class="page-content page-container" id="page-content">
+                            <div class="padding">
+                                <div class="row container d-flex justify-content-center">
+                                    <div class="col-xl-6 col-md-12">
+                                        <div class="card user-card-full">
+                                            <div class="card-block">
+                                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600"></h6>
+                                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600"></h6>
+
+                                                <br>
+
+                                                <a class="btn btn-primary" href="../../ProductData.php" role="button">Kembali Ke Menu Awal</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </center>
-                    <div class="box">
+                        </div>
+                    </center> -->
+                    <!-- <div class="box">
                         <div style="color: white">Data berhasil disimpan.</div><br>
                         <a href="ProductData.php"><button>Kembali Ke Menu Awal</button></a>
-                    </div>
+                    </div> -->
                 <?php
                 }
             } else {
