@@ -1,0 +1,17 @@
+/* form area */
+.form-area {
+  width: 50% !important;
+  margin: 5vh auto !important;
+}
+
+.form-area label {
+  color: #fff;
+  font-size: 120%;
+  text-align: right;
+}
+
+.button-area {
+  width: 100%;
+  text-align: center;
+  margin-top: 5vh;
+}
