@@ -17,7 +17,7 @@ if ($db->connect_errno == 0) {
                     $_SESSION["id"] = $data["id"];
                     $_SESSION["username"] = $data["username"];
                     $_SESSION["nama"] = $nama;
-                    header("Location: ../ProductDataa.php");
+                    header("Location: ../ProductData.php");
                 } else {
                     session_start();
                     $nama = $data['firstname'] . " " . $data['lastname'];
