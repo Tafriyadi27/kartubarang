@@ -22,14 +22,15 @@ $pdf->Cell(40, 6, 'Keterangan', 1, 0);
 $pdf->SetFont('Arial', '', 10);
 $data = getDataKartuBarang2();
 $no = 1;
+$fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
 foreach ($data as $value) {
     $pdf->ln();
     $pdf->Cell(10, 6, $no++, 1, 0);
     $pdf->Cell(40, 6, $value['tanggal'], 1, 0);
 
-    $pdf->Cell(30, 6, $value['masuk'], 1, 0);
-    $pdf->Cell(30, 6, $value['keluar'], 1, 0);
-    $pdf->Cell(30, 6, $value['sisa'], 1, 0);
+    $pdf->Cell(30, 6, numfmt_format_currency($fmt, $value['masuk'], "IDR"), 1, 0);
+    $pdf->Cell(30, 6, numfmt_format_currency($fmt, $value['keluar'], "IDR"), 1, 0);
+    $pdf->Cell(30, 6, numfmt_format_currency($fmt, $value['sisa'], "IDR"), 1, 0);
     $pdf->Cell(40, 6, $value['keterangan'], 1, 0);
 }
-$pdf->Output();
+$pdf->Output('D', 'Laporan Kartu Barang.pdf');

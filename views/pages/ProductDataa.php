@@ -61,6 +61,7 @@ if (!isset($_SESSION["id"]))
                         <tbody>
                             <?php
                             $no = $mulai + 1;
+                            $fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
                             while ($data = $res->fetch_assoc()) {
                                 $tanggal = $data['tanggal'];
                                 $formattanggal = date('d-m-Y', strtotime($tanggal));
@@ -68,9 +69,9 @@ if (!isset($_SESSION["id"]))
                                 <tr>
                                     <th class="align-middle"><?= $no ?></th>
                                     <td class="align-middle"><?= $formattanggal ?></td>
-                                    <td class="align-middle"><?= $data['masuk'] ?></td>
-                                    <td class="align-middle"><?= $data['keluar'] ?></td>
-                                    <td class="align-middle"><?= $data['sisa'] ?></td>
+                                    <td class="align-middle"><?= numfmt_format_currency($fmt, $data['masuk'], "IDR"); ?></td>
+                                    <td class="align-middle"><?= numfmt_format_currency($fmt, $data['keluar'], "IDR"); ?></td>
+                                    <td class="align-middle"><?= numfmt_format_currency($fmt, $data['sisa'], "IDR"); ?></td>
                                     <td class="align-middle"><?= $data['keterangan'] ?></td>
                                 </tr>
                             <?php
