@@ -364,8 +364,6 @@ if (!isset($_SESSION["id"]))
 							<tbody>
 								<?php
 								$no = $mulai + 1;
-								$fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
-
 								while ($data = $res->fetch_assoc()) {
 									$tanggal = $data['tanggal'];
 									$formattanggal = date('d-m-Y', strtotime($tanggal));
@@ -373,9 +371,9 @@ if (!isset($_SESSION["id"]))
 									<tr>
 										<th class="align-middle"><?= $no ?></th>
 										<td class="align-middle"><?= $formattanggal ?></td>
-										<td class="align-middle"><?= numfmt_format_currency($fmt, $data['masuk'], "IDR"); ?></td>
-										<td class="align-middle"><?= numfmt_format_currency($fmt, $data['keluar'], "IDR"); ?></td>
-										<td class="align-middle"><?= numfmt_format_currency($fmt, $data['sisa'], "IDR"); ?></td>
+										<td class="align-middle"><?= $data['masuk'] ?></td>
+										<td class="align-middle"><?= $data['keluar'] ?></td>
+										<td class="align-middle"><?= $data['sisa'] ?></td>
 										<td class="align-middle"><?= $data['keterangan'] ?></td>
 										<td>
 											<a href="views/pages/ProductEdit.php?id=<?= urlencode(openssl_encrypt(
@@ -436,13 +434,13 @@ if (!isset($_SESSION["id"]))
 							<!-- Masuk -->
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Masuk</label>
-								<input type="text" class="form-control" name="masuk" id="someid" value="" data-an-default="" required />
+								<input type="text" class="form-control" name="masuk" value="" required />
 							</div>
 
 							<!-- Keluar-->
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Keluar</label>
-								<input type="text" class="form-control" name="keluar" id="someid2" value="" data-an-default="" required />
+								<input type="text" class="form-control" name="keluar" value="" required />
 							</div>
 
 							<!-- Keterangan-->
@@ -531,12 +529,6 @@ if (!isset($_SESSION["id"]))
 		</div>
 
 			</div>
-			<script>
-				$(document).ready(function() {
-					$('#someid').autoNumeric('init');
-					$('#someid2').autoNumeric('init');
-				});
-			</script>
 
 </body>
 

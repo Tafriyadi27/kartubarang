@@ -50,13 +50,13 @@ if (!isset($_SESSION["id"]))
                         <!-- Masuk -->
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Masuk</label>
-                            <input type="text" class="form-control" name="masuk" id="someid" value="<?php echo $datakartubarang["masuk"]; ?>" data-an-default="1234.56" readonly />
+                            <input type="text" class="form-control" name="masuk" value="<?php echo $datakartubarang["masuk"]; ?>" readonly />
                         </div>
 
                         <!-- Keluar-->
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Keluar</label>
-                            <input type="text" class="form-control" name="keluar" id="someid2" value="<?php echo $datakartubarang["keluar"]; ?>" data-an-default="1234.56" readonly />
+                            <input type="text" class="form-control" name="keluar" value="<?php echo $datakartubarang["keluar"]; ?>" readonly />
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Keterangan</label>
                                 <input type="text" class="form-control" name="keterangan" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Keterangan" value="<?php echo $datakartubarang["keterangan"]; ?>" readonly />
@@ -91,10 +91,6 @@ if (!isset($_SESSION["id"]))
             return false;
         return true;
     }
-    $(document).ready(function() {
-        $('#someid').autoNumeric('init');
-        $('#someid2').autoNumeric('init');
-    });
 </script>
 <!-- ending content -->
 <?php

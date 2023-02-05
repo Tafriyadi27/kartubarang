@@ -50,13 +50,13 @@ if (!isset($_SESSION["id"]))
                         <!-- Masuk -->
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Masuk</label>
-                            <input type="text" class="form-control" name="masuk" id="someid" value="<?php echo $datakartubarang["masuk"]; ?>" data-an-default="1234.56" required />
+                            <input type="text" class="form-control" name="masuk" value="<?php echo $datakartubarang["masuk"]; ?>" required />
                         </div>
 
                         <!-- Keluar-->
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Keluar</label>
-                            <input type="text" class="form-control" name="keluar" id="someid2" value="<?php echo $datakartubarang["keluar"]; ?>" data-an-default="1234.56" required />
+                            <input type="text" class="form-control" name="keluar" value="<?php echo $datakartubarang["keluar"]; ?>" required />
                         </div>
 
                         <!-- Keterangan-->
